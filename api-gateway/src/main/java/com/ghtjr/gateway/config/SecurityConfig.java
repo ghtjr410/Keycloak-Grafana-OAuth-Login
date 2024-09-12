@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @Configuration
 public class SecurityConfig  {
 
-    private final String[] freeResourceUrls = {};
+    private final String[] freeResourceUrls = {"/actuator/prometheus"};
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
