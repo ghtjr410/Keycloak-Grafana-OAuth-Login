@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 2s
+  evaluation_interval: 2s
+
+scrape_configs:
+  - job_name: 'api-gatway'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.interval:8080']
+        labels:
+          application: 'API Gateway'
