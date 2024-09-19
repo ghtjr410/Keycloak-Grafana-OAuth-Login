@@ -58,6 +58,15 @@
         "attributes": {}
       },
       {
+        "id": "ea22796e-65c0-47d7-9b5b-25a5ff3829b8",
+        "name": "develop",
+        "description": "Develop Role",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "3b857ae3-3628-45fb-8536-cc389ca1b5fa",
+        "attributes": {}
+      },
+      {
         "id": "16271d54-3f9e-4f76-8080-529142107b05",
         "name": "user",
         "description": "User Role",
@@ -361,6 +370,7 @@
         }
       ],
       "security-admin-console": [],
+      "grafana-client": [],
       "admin-cli": [],
       "account-console": [],
       "broker": [
@@ -795,6 +805,89 @@
       ]
     },
     {
+      "id": "0b91b6e2-cfba-4fd7-aa35-5330e81025b7",
+      "clientId": "grafana-client",
+      "name": "Grafana Client",
+      "description": "for developer",
+      "rootUrl": "http://localhost:9000/",
+      "adminUrl": "http://localhost:9000/",
+      "baseUrl": "http://localhost:9000/",
+      "surrogateAuthRequired": false,
+      "enabled": true,
+      "alwaysDisplayInConsole": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "**********",
+      "redirectUris": [
+        "http://localhost:9000/*"
+      ],
+      "webOrigins": [
+        "http://localhost:9000"
+      ],
+      "notBefore": 0,
+      "bearerOnly": false,
+      "consentRequired": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "publicClient": false,
+      "frontchannelLogout": false,
+      "protocol": "openid-connect",
+      "attributes": {
+        "client.secret.creation.time": "1726723759",
+        "login_theme": "adminTheme",
+        "post.logout.redirect.uris": "http://localhost:9000/login",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "backchannel.logout.revoke.offline.tokens": "false",
+        "use.refresh.tokens": "true",
+        "oidc.ciba.grant.enabled": "false",
+        "client.use.lightweight.access.token.enabled": "false",
+        "backchannel.logout.session.required": "false",
+        "client_credentials.use_refresh_token": "false",
+        "tls.client.certificate.bound.access.tokens": "false",
+        "require.pushed.authorization.requests": "false",
+        "acr.loa.map": "{}",
+        "display.on.consent.screen": "false",
+        "token.response.type.bearer.lower-case": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
+      "protocolMappers": [
+        {
+          "id": "72192a23-216b-4dbc-9d42-8a09168728e3",
+          "name": "realm roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "introspection.token.claim": "true",
+            "multivalued": "true",
+            "userinfo.token.claim": "true",
+            "user.attribute": "foo",
+            "id.token.claim": "true",
+            "lightweight.claim": "false",
+            "access.token.claim": "true",
+            "claim.name": "realm_access.roles",
+            "jsonType.label": "String"
+          }
+        }
+      ],
+      "defaultClientScopes": [
+        "web-origins",
+        "acr",
+        "roles",
+        "profile",
+        "email"
+      ],
+      "optionalClientScopes": [
+        "address",
+        "phone",
+        "offline_access",
+        "microprofile-jwt"
+      ]
+    },
+    {
       "id": "89c2656a-f632-49eb-9213-8e4e588e461d",
       "clientId": "postman-client-id",
       "name": "ghtjr410",
@@ -827,6 +920,7 @@
         "oidc.ciba.grant.enabled": "false",
         "client.secret.creation.time": "1725966088",
         "backchannel.logout.session.required": "true",
+        "post.logout.redirect.uris": "+",
         "oauth2.device.authorization.grant.enabled": "false",
         "display.on.consent.screen": "false",
         "backchannel.logout.revoke.offline.tokens": "false"
@@ -844,6 +938,7 @@
           "config": {
             "user.session.note": "clientAddress",
             "introspection.token.claim": "true",
+            "userinfo.token.claim": "true",
             "id.token.claim": "true",
             "access.token.claim": "true",
             "claim.name": "clientAddress",
@@ -859,6 +954,7 @@
           "config": {
             "user.session.note": "client_id",
             "introspection.token.claim": "true",
+            "userinfo.token.claim": "true",
             "id.token.claim": "true",
             "access.token.claim": "true",
             "claim.name": "client_id",
@@ -874,6 +970,7 @@
           "config": {
             "user.session.note": "clientHost",
             "introspection.token.claim": "true",
+            "userinfo.token.claim": "true",
             "id.token.claim": "true",
             "access.token.claim": "true",
             "claim.name": "clientHost",
@@ -1061,6 +1158,7 @@
           "config": {
             "user.session.note": "clientHost",
             "introspection.token.claim": "true",
+            "userinfo.token.claim": "true",
             "id.token.claim": "true",
             "access.token.claim": "true",
             "claim.name": "clientHost",
@@ -1076,6 +1174,7 @@
           "config": {
             "user.session.note": "client_id",
             "introspection.token.claim": "true",
+            "userinfo.token.claim": "true",
             "id.token.claim": "true",
             "access.token.claim": "true",
             "claim.name": "client_id",
@@ -1091,6 +1190,7 @@
           "config": {
             "user.session.note": "clientAddress",
             "introspection.token.claim": "true",
+            "userinfo.token.claim": "true",
             "id.token.claim": "true",
             "access.token.claim": "true",
             "claim.name": "clientAddress",
@@ -1735,13 +1835,13 @@
         "config": {
           "allowed-protocol-mapper-types": [
             "oidc-usermodel-attribute-mapper",
-            "oidc-full-name-mapper",
-            "saml-role-list-mapper",
             "oidc-usermodel-property-mapper",
             "saml-user-attribute-mapper",
-            "oidc-sha256-pairwise-sub-mapper",
+            "saml-user-property-mapper",
             "oidc-address-mapper",
-            "saml-user-property-mapper"
+            "oidc-full-name-mapper",
+            "oidc-sha256-pairwise-sub-mapper",
+            "saml-role-list-mapper"
           ]
         }
       },
@@ -1785,14 +1885,14 @@
         "subComponents": {},
         "config": {
           "allowed-protocol-mapper-types": [
-            "saml-role-list-mapper",
-            "oidc-address-mapper",
-            "saml-user-property-mapper",
-            "oidc-full-name-mapper",
             "saml-user-attribute-mapper",
-            "oidc-usermodel-attribute-mapper",
+            "oidc-full-name-mapper",
+            "oidc-address-mapper",
             "oidc-usermodel-property-mapper",
-            "oidc-sha256-pairwise-sub-mapper"
+            "oidc-usermodel-attribute-mapper",
+            "saml-user-property-mapper",
+            "oidc-sha256-pairwise-sub-mapper",
+            "saml-role-list-mapper"
           ]
         }
       },
